@@ -1,4 +1,4 @@
-"""The SwitchBot integration and API tools."""
+"""The SwitchBot integration."""
 
 import logging
 from homeassistant.config_entries import ConfigEntry
@@ -7,7 +7,6 @@ from homeassistant.const import Platform
 
 from .coordinator import SwitchBotDataUpdateCoordinator
 from .const import DOMAIN, DEFAULT_SCAN_INTERVAL
-from .switchbot_api import SwitchBotAPI  # Assurez-vous d'importer votre API
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -56,5 +55,9 @@ class SwitchBotAPI:
 
     async def get_power_consumption(self, device_id: str):
         """Récupérer les informations de consommation d'énergie pour une prise connectée."""
-        body = await self._request(f"devices/{device_id}/powerConsumption")
-        return body
+        try:
+            body = await self._request(f"devices/{device_id}/powerConsumption")
+            return body
+        except Exception as e:
+            _LOGGER.error(f"Erreur lors de la récupération de la consommation d'énergie : {e}")
+            return None
