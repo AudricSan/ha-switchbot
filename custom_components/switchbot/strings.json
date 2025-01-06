@@ -2,7 +2,11 @@
   "entity": {
     "sensor": {
       "value": {
-        "name": "SwitchBot Value"
+        "name": {
+          "en": "SwitchBot Value",
+          "fr": "Valeur SwitchBot",
+          "ja": "スイッチボットの値"
+        }
       }
     }
   }
