@@ -1,0 +1,16 @@
+{
+  "domain": "switchbot",
+  "name": "SwitchBot",
+  "codeowners": ["@votre_nom"],
+  "config_flow": true,
+  "documentation": "https://github.com/votre_repo",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/votre_repo/issues",
+  "version": "1.0.0",
+  "requirements": [],
+  "single_config_entry": true,
+  "homeassistant": {
+    "min_version": "2024.12.0"
+  }
+}
